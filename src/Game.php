@@ -1,7 +1,7 @@
 <?php
   class Game
   {
-    private $cards;
+    private $deck;
     // private $pool;
     // private $turn;
     private $players;
@@ -18,9 +18,9 @@
     function getPlayers(){
       return $this->players;
     }
-    function setCards(){
-      $this->cards = rand(1, 10);
-    }
+    // function setCards(){
+    //   $this->cards = rand(1, 10);
+    // }
 
     function save(){
       array_push($_SESSION['games'], $this);
