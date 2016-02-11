@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add Players!</h1>
+      <div class="row">
+        <form action="/created_players" method="post">
+          <div class="input-field col s6">
+            <label for="player1">Player 1:</label>
+            <input name="player1" id="player1" type="text">
+          </div>
+
+          <div class="input-field col s6">
+            <label for="player2">Player 2:</label>
+            <input name="player2" id="player2" type="text">
+          </div>
+          <button type="submit" class="btn">Add</button>
+        </form>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  </body>
+</html>

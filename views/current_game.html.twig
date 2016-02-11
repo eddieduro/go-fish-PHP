@@ -8,24 +8,21 @@
   </head>
   <body>
     <div class="container">
-      {% if games is empty %}
-        <h1>Welcom to Go fish!</h1>
-        <h5>Add players below</h5>
-        <hr>
-        <a href="/add_players"><button class="btn">Add</button></a>
-      {% else %}
+      <h1 class='center-align'>GO GO GO!</h1>
         <div class="row">
-          <h1>GO GO GO!</h1>
-          <ul>
-            <h5>{{games.getName1}}</h5>
-            <li></li>
-          </ul>
-          <ul>
-            <h5>{{newplayers.getName2}}</h5>
-            <li></li>
-          </ul>
+          <div class="col s6">
+            <ul>
+              <h5>{{game.getName1}}</h5>
+              <li></li>
+            </ul>
+          </div>
+          <div class="col s6">
+            <ul>
+              <h5>{{game.getName2}}</h5>
+              <li></li>
+            </ul>
+          </div>
         </div>
-      {% endif %}
       <form action="/restart_game" method="get">
         <button type="submit" class="btn">Restart</button>
       </form>
