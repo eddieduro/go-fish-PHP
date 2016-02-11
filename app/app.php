@@ -32,6 +32,7 @@
     $current_players = $new_game->getPlayers();
     $new_game->save();
     $new_players->save();
+
     return $app['twig']->render('created_players.html.twig', array('newplayers' => $current_players));
   });
 
@@ -47,9 +48,11 @@
     $current_players = $active_players[0]->getPlayers();
     $cards = $current_players->getCards();
     $current_hand = array();
+    
     for($i = 0; $i <= 5; $i++){
       array_push($current_hand,rand(1,10));
     }
+
     return $app['twig']->render('player_one_hand.html.twig', array('player_one_cards' => $current_hand, 'games' => $current_players));
   });
 
@@ -61,10 +64,17 @@
     $active_game = Game::getAll();
     $active_players = Player::getAll();
     $current_players = $active_players[0]->getPlayers();
+    $current_score = $active_players[0]->getScore();
     $cards = $current_players->getCards();
     $current_hand = array();
+    $draw = array();
+
     for($i = 0; $i <= 5; $i++){
       array_push($current_hand,rand(1,10));
+    }
+
+    if($current_hand[0] == $current_hand[1] && $current_hand[0] == $current_hand[2] && $current_hand[0] == $current_hand[3]){
+      $current_players[0]->setScore($current_score + 1);
     }
     return $app['twig']->render('player_two_hand.html.twig', array('player_two_cards' => $current_hand, 'games' => $current_players));
   });
@@ -74,9 +84,9 @@
     $current_players = $active_players[0]->getPlayers();
     $cards = $current_players->getCards();
     $current_hand = array();
+
     for($i = 0; $i <= 5; $i++){
       array_push($current_hand,rand(1,10));
-
     }
     return $app['twig']->render('current_game.html.twig', array('games' => $current_players));
   });

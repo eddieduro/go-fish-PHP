@@ -3,6 +3,7 @@
   {
     private $deck;
     private $players;
+    private $score = 0;
 
     function getCards(){
       return $this->cards;
@@ -15,6 +16,14 @@
     }
     function getPlayers(){
       return $this->players;
+    }
+
+    function setScore($new_score){
+      $this->score = $new_score;
+    }
+
+    function getScore(){
+      return $this->score;
     }
 
     function save(){
