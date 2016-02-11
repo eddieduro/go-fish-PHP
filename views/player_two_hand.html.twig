@@ -12,24 +12,15 @@
         <div class="row">
           <div class="col s6">
             <ul>
-              <h5>{{games.getName1}}</h5>
-              <form action="/add_cards" method="post">
-
-              </form>
-              <li></li>
-            </ul>
-          </div>
-          <div class="col s6">
-            <ul>
               <h5>{{games.getName2}}</h5>
-              {% for card in cards %}
+              {% for card in player_two_cards %}
               <li>{{card}}</li>
               {% endfor %}
             </ul>
 
           </div>
           <form action="/add_player_one_cards" method="get">
-            <button type="submit" class="btn">Player 1 Add Cards</button>
+            <button type="submit" class="btn">Next Player's Turn</button>
           </form>
         </div>
       <form action="/restart_game" method="get">

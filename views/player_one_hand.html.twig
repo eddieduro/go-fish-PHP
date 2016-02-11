@@ -13,23 +13,14 @@
           <div class="col s6">
             <ul>
               <h5>{{games.getName1}}</h5>
-              <form action="/add_cards" method="post">
-
-              </form>
+              {% for card in player_one_cards %}
+              <li>{{card}}</li>
+              {% endfor %}
               <li></li>
             </ul>
           </div>
-          <div class="col s6">
-            <ul>
-              <h5>{{games.getName2}}</h5>
-              {% for card in cards %}
-              <li>{{card}}</li>
-              {% endfor %}
-            </ul>
-
-          </div>
-          <form action="/add_cards" method="get">
-            <button type="submit" class="btn">Next PLayer's Turn</button>
+          <form action="/add_player_two_cards" method="get">
+            <button type="submit" class="btn">Next Player's Turn</button>
           </form>
         </div>
       <form action="/restart_game" method="get">

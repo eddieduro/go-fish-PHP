@@ -32,15 +32,16 @@
     $current_players = $new_game->getPlayers();
     $new_game->save();
     $new_players->save();
-    var_dump($current_players);
     return $app['twig']->render('created_players.html.twig', array('newplayers' => $current_players));
   });
 
-  $app->get('/add_cards', function () use ($app) {
-    return $app['twig']->render('add_cards.html.twig');
+  $app->get('/add_player_one_cards', function () use ($app) {
+    return $app['twig']->render('add_player_one_cards.html.twig');
   });
 
-  $app->post('/current_hand', function() use ($app) {
+
+
+  $app->post('/player_one_hand', function() use ($app) {
     $active_game = Game::getAll();
     $active_players = Player::getAll();
     $current_players = $active_players[0]->getPlayers();
@@ -49,8 +50,23 @@
     for($i = 0; $i <= 5; $i++){
       array_push($current_hand,rand(1,10));
     }
-    var_dump($current_hand);
-    return $app['twig']->render('current_hand.html.twig', array('cards' => $current_hand));
+    return $app['twig']->render('player_one_hand.html.twig', array('player_one_cards' => $current_hand, 'games' => $current_players));
+  });
+
+  $app->get('/add_player_two_cards', function () use ($app) {
+    return $app['twig']->render('add_player_two_cards.html.twig');
+  });
+
+  $app->post('/player_two_hand', function() use ($app) {
+    $active_game = Game::getAll();
+    $active_players = Player::getAll();
+    $current_players = $active_players[0]->getPlayers();
+    $cards = $current_players->getCards();
+    $current_hand = array();
+    for($i = 0; $i <= 5; $i++){
+      array_push($current_hand,rand(1,10));
+    }
+    return $app['twig']->render('player_two_hand.html.twig', array('player_two_cards' => $current_hand, 'games' => $current_players));
   });
   $app->get('/current_game', function() use ($app) {
     $active_game = Game::getAll();
@@ -60,6 +76,7 @@
     $current_hand = array();
     for($i = 0; $i <= 5; $i++){
       array_push($current_hand,rand(1,10));
+
     }
     return $app['twig']->render('current_game.html.twig', array('games' => $current_players));
   });
