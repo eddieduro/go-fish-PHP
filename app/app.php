@@ -68,6 +68,7 @@
     $active_game = Game::getAll();
     $active_players = Player::getAll();
     $cardOne = new Card(rand(1,10), firstcard);
+    $cardOne->setScore(rand(1, 10));
     $cardOne->save();
     $cardTwo = new Card(rand(1,10), secondcard);
     $cardTwo->save();
@@ -85,18 +86,21 @@
 
 
     $current_hand = array($cardOne, $cardTwo, $cardThree, $cardFour, $cardFive);
-    var_dump($current_hand[0]);
+
+    // if($card.getDescription() == firstcard){
+    //   $card.draw(rand(1, 10));
+    // }
     // $draw = array();
 
     // for($i = 0; $i <= 4; $i++){
     //   array_push($current_hand,rand(1,2));
     // }
 
-    for($z = 0; $z <= 4; $z++){
-      if($current_hand[0] == $current_hand[1] && $current_hand[0] == $current_hand[2] && $current_hand[0] == $current_hand[3]){
-        $active_players[0]->setScore2($current_score + 1);
-      }
-    }
+    // for($z = 0; $z <= 4; $z++){
+    //   if($current_hand[0] == $current_hand[1] && $current_hand[0] == $current_hand[2] && $current_hand[0] == $current_hand[3]){
+    //     $active_players[0]->setScore2($current_score + 1);
+    //   }
+    // }
     // var_dump($current_hand);
     // for($x = 0; $x <= 4 ; $x++){
     //   if($current_hand[$x] != $current_hand[1] || $current_hand[$x] != $current_hand[2] || $current_hand[$x] != $current_hand[3] || $current_hand[$x] != $current_hand[4]) {

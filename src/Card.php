@@ -23,6 +23,7 @@
     function getDescription(){
       return $this->description;
     }
+    
     function save(){
       array_push($_SESSION['games'], $this);
     }
