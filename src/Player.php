@@ -4,7 +4,8 @@
     private $name1;
     private $name2;
     private $cards = array(1,2,3,4,5,6,7,8,9,10);
-    private $score = 0;
+    private $score1 = 0;
+    private $score2 = 0;
 
     function setName1($new_player1){
       $this->name1 = $new_player1;
@@ -28,12 +29,20 @@
       return $this->cards;
     }
 
-    function setScore($new_score){
-      $this->score = $new_score;
+    function setScore1($new_score1){
+      $this->score = $new_score1;
     }
 
-    function getScore(){
-      return $this->score;
+    function getScore1(){
+      return $this->score1;
+    }
+
+    function setScore2($new_score2){
+      $this->score = $new_score2;
+    }
+
+    function getScore2(){
+      return $this->score2;
     }
 
     function save(){

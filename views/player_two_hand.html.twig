@@ -11,19 +11,19 @@
       <h1 class='center-align'>GO GO GO!</h1>
         <div class="row">
           <div class="col s6">
-
             <ul>
               <h5>{{games.getName2}}</h5>
               {% for card in player_two_cards %}
               <li>{{card}}</li>
               {% endfor %}
-              <li>Score: {{games.getScore}}</li>
-          
+              <li>Score: {{games.getScore2}}</li>
             </ul>
-
           </div>
           <form action="/add_player_one_cards" method="get">
             <button type="submit" class="btn">Next Player's Turn</button>
+          </form>
+          <form action="/player_two_hand" method="post">
+            <button type="submit" class="btn">Draw Again</button>
           </form>
         </div>
       <form action="/restart_game" method="get">
