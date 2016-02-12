@@ -2,6 +2,7 @@
   require_once __DIR__.'/../vendor/autoload.php';
   require_once __DIR__.'/../src/Game.php';
   require_once __DIR__.'/../src/Player.php';
+  require_once __DIR__.'/../src/Card.php';
 
   session_start();
   if(empty($_SESSION['games'])) {
@@ -66,10 +67,21 @@
   $app->post('/player_two_hand', function() use ($app) {
     $active_game = Game::getAll();
     $active_players = Player::getAll();
+    $cardOne = new Card(rand(1,10), firstcard);
+    $cardOne->save();
+    $cardTwo = new Card(rand(1,10), secondcard);
+    $cardTwo->save();
+    $cardThree = new Card(rand(1,10), thirdcard);
+    $cardThree->save();
+    $cardFour = new Card(rand(1,10), fourthcard);
+    $cardFour->save();
+    $cardFive = new Card(rand(1,10), fifthcard);
+    $cardFive->save();
     $current_players = $active_players[0]->getPlayers();
     $current_score = $active_players[0]->setScore2(0);
     $current_score = $active_players[0]->getScore2();
-    $cards = $current_players->getCards();
+
+
     $current_hand = array();
     $draw = array();
 

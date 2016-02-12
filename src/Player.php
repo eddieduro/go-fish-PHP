@@ -3,7 +3,7 @@
   {
     private $name1;
     private $name2;
-    private $cards = array(1,2,3,4,5,6,7,8,9,10);
+    private $cards;
     private $score1 = 0;
     private $score2 = 0;
 
