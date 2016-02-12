@@ -4,6 +4,10 @@
     private $score;
     private $description;
 
+    function __contruct($score, $description){
+      $this->score = $score;
+      $this->description = $description;
+    }
     function setScore($new_score){
       $this->score = $new_score;
     }
@@ -22,19 +26,8 @@
     function save(){
       array_push($_SESSION['games'], $this);
     }
+    function draw($card){
+      $this->score = $card;
+    }
   }
 ?>
-card class
-->score
-->desc
-
-$cardOne = new Card(rand(1,10), firstcard);
-$cardOne->save();
-
-$allCards = array($cardOne....)
-
-$allCards[0];
-
-draw()
-if (card.getDesc == firstcard) {
-  card.drawNewCard()

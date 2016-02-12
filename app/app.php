@@ -77,17 +77,20 @@
     $cardFour->save();
     $cardFive = new Card(rand(1,10), fifthcard);
     $cardFive->save();
+
+
     $current_players = $active_players[0]->getPlayers();
     $current_score = $active_players[0]->setScore2(0);
     $current_score = $active_players[0]->getScore2();
 
 
-    $current_hand = array();
-    $draw = array();
+    $current_hand = array($cardOne, $cardTwo, $cardThree, $cardFour, $cardFive);
+    var_dump($current_hand[0]);
+    // $draw = array();
 
-    for($i = 0; $i <= 4; $i++){
-      array_push($current_hand,rand(1,2));
-    }
+    // for($i = 0; $i <= 4; $i++){
+    //   array_push($current_hand,rand(1,2));
+    // }
 
     for($z = 0; $z <= 4; $z++){
       if($current_hand[0] == $current_hand[1] && $current_hand[0] == $current_hand[2] && $current_hand[0] == $current_hand[3]){
@@ -95,11 +98,11 @@
       }
     }
     // var_dump($current_hand);
-    for($x = 0; $x <= 4 ; $x++){
-      if($current_hand[$x] != $current_hand[1] || $current_hand[$x] != $current_hand[2] || $current_hand[$x] != $current_hand[3] || $current_hand[$x] != $current_hand[4]) {
-        $current_hand[$x] = rand(1, 2);
-      }
-    }
+    // for($x = 0; $x <= 4 ; $x++){
+    //   if($current_hand[$x] != $current_hand[1] || $current_hand[$x] != $current_hand[2] || $current_hand[$x] != $current_hand[3] || $current_hand[$x] != $current_hand[4]) {
+    //     $current_hand[$x] = rand(1, 2);
+    //   }
+    // }
     return $app['twig']->render('player_two_hand.html.twig', array('player_two_cards' => $current_hand, 'games' => $current_players));
   });
   $app->get('/current_game', function() use ($app) {
@@ -118,3 +121,18 @@
   });
   return $app;
 ?>
+
+<!-- card class
+->score
+->desc
+
+$cardOne = new Card(rand(1,10), firstcard);
+$cardOne->save();
+
+$allCards = array($cardOne....)
+
+$allCards[0];
+
+draw()
+if (card.getDesc == firstcard) {
+  card.drawNewCard() -->
